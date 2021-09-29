@@ -1,6 +1,6 @@
 pragma solidity ^0.4.19;
 
-interface WethInterface {
+interface IWeth {
     function allowance(address owner, address spender)
         external
         view
