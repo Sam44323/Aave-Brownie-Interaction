@@ -11,7 +11,6 @@ def get_weth():
         "value": 0.1 * 10 ** 18
     })
     transaction.wait(1)
-    print("Received the 0.1 WETH")
     return transaction
 
 
