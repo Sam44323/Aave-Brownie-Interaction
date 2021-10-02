@@ -58,5 +58,5 @@ def get_borrowable_data(lending_pool, account):
     total_collateral_eth = Web3.fromWei(total_collateral_eth, 'ether')
     total_debt_eth = Web3.fromWei(total_debt_eth, 'ether')
     print(f"You have {total_collateral_eth} value of ETH in deposition!")
-    print(f"You have {total_debt_eth} value of ETH in debt!")
-    print(f"You have {available_borrow_eth} value of ETH for borrowing!")
+    print(f"You have {total_debt_eth} value of ETH borrowed!")
+    print(f"You can borrow {available_borrow_eth} value of ETH!")
