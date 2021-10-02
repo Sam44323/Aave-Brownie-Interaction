@@ -9,7 +9,7 @@ def main():
     if network.show_active() in [LOCAL_BLOCKCHAIN_ENVIRONMENTS, "kovan"]:
         get_weth()
     lending_pool = get_lending_pool()
-    print(lending_pool)
+    approve_erc20()
 
 # this function uses the lending pool address contract for getting the current address for the lending pool contract
 # and returns it
@@ -26,3 +26,9 @@ def get_lending_pool():
     lending_pool_address = lending_pool_addresses_provider.getLendingPool()
     lending_pool = interface.ILendingPool(lending_pool_address)
     return lending_pool
+
+# Function for approving the ERC20 token for any transaction
+
+
+def approve_erc20():
+    pass
