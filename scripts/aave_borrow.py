@@ -60,3 +60,4 @@ def get_borrowable_data(lending_pool, account):
     print(f"You have {total_collateral_eth} value of ETH in deposition!")
     print(f"You have {total_debt_eth} value of ETH borrowed!")
     print(f"You can borrow {available_borrow_eth} value of ETH!")
+    return(total_collateral_eth, total_debt_eth, available_borrow_eth)
