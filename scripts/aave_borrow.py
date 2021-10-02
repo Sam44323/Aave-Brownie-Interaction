@@ -16,6 +16,11 @@ def main():
     lending_pool = get_lending_pool()
     # allowing the contract to spend the erc20 tokens
     approve_erc20(AMOUNT, erc20_address, lending_pool.address, get_account())
+    print("Depositing!")
+    transaction = lending_pool.deposit(erc20_address, Web3.toWei(
+        0.000001, 'ether'), account.address, 0, {"from": account})
+    transaction.wait(1)
+    print("Deposited!")
 
 # this function uses the lending pool address contract for getting the current address for the lending pool contract
 # and returns it
