@@ -1,6 +1,11 @@
+import web3
 from scripts.get_weth import get_weth
 from scripts.helpful_scripts import get_account, LOCAL_BLOCKCHAIN_ENVIRONMENTS
 from brownie import config, network, interface
+from web3 import Web3
+
+# 0.1
+AMOUNT = Web3.toWei(0.1, 'ether')
 
 
 def main():
@@ -9,7 +14,8 @@ def main():
     if network.show_active() in [LOCAL_BLOCKCHAIN_ENVIRONMENTS, "kovan"]:
         get_weth()
     lending_pool = get_lending_pool()
-    approve_erc20()
+    # allowing the contract to spend the erc20 tokens
+    approve_erc20(AMOUNT, erc20_address, lending_pool.address, get_account())
 
 # this function uses the lending pool address contract for getting the current address for the lending pool contract
 # and returns it
@@ -30,5 +36,10 @@ def get_lending_pool():
 # Function for approving the ERC20 token for any transaction
 
 
-def approve_erc20():
-    pass
+def approve_erc20(amount, erc20_address, spender, account):
+    print("Approving the ERC20 token...")
+    erc20 = interface.IERC20(erc20_address)
+    transaction = erc20.approve(spender, amount,  {"from": account})
+    transaction.wait(1)
+    print("Approved!")
+    return transaction
