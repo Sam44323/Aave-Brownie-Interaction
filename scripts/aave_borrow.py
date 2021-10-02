@@ -53,3 +53,6 @@ def approve_erc20(amount, erc20_address, spender, account):
 def get_borrowable_data(lending_pool, account):
     (total_collateral_eth, total_borrow_eth, available_borrow_eth, current_liquidation_threshold,
      ltv, h_factor) = lending_pool.getUserAccountData(account.address)
+     # converting the returned wei data to ether
+    available_borrow_eth = Web3.fromWei(available_borrow_eth)
+    total_collateral_eth = Web3.fromWei(total_collateral_eth)
