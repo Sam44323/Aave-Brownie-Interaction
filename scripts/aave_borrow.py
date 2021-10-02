@@ -9,7 +9,7 @@ def main():
     if network.show_active() in [LOCAL_BLOCKCHAIN_ENVIRONMENTS, "kovan"]:
         get_weth()
     lending_pool = get_lending_pool()
-
+    print(lending_pool)
 
 # this function uses the lending pool address contract for getting the current address for the lending pool contract
 # and returns it
@@ -19,7 +19,7 @@ def get_lending_pool():
     # getting the contract for the lending pool provider contract
     lending_pool_addresses_provider = interface.ILendingPoolAddressesProvider(
         config["networks"][network.show_active(
-        )]["lending_pool_addresses_provider"]
+        )]["lending_pool_address_provider"]
     )
 
     # getting the current address for the lending pool contract for aave
