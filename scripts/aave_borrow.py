@@ -8,3 +8,8 @@ def main():
     erc20_address = config["networks"][network.show_active()]["weth_token"]
     if network.show_active() in [LOCAL_BLOCKCHAIN_ENVIRONMENTS, "kovan"]:
         get_weth()
+
+# this function uses the lending pool address contract for getting the current address for the lending pool contract
+
+
+def get_lending_pool():
