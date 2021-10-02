@@ -10,6 +10,7 @@ def main():
         get_weth()
 
 # this function uses the lending pool address contract for getting the current address for the lending pool contract
+# and returns it
 
 
 def get_lending_pool():
