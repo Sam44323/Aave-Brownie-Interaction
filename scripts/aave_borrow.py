@@ -22,7 +22,7 @@ def main():
     transaction.wait(1)
     print("Deposited!")
 
-# this function uses the lending pool address contract for getting the current address for the lending pool contract
+# this function uses the lending pool provider address contract for getting the current address for the lending pool contract
 # and returns it
 
 
