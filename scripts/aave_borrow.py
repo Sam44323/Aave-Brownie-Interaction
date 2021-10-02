@@ -47,3 +47,7 @@ def approve_erc20(amount, erc20_address, spender, account):
     transaction.wait(1)
     print("Approved!")
     return transaction
+
+
+def get_borrowable_data():
+    pass
