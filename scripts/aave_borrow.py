@@ -21,7 +21,8 @@ def main():
         0.000001, 'ether'), account.address, 0, {"from": account})
     transaction.wait(1)
     print("Deposited!")
-    get_borrowable_data(lending_pool, account)
+    (borrowable_eth, total_debt) = get_borrowable_data(lending_pool, account)
+
 
 # this function uses the lending pool provider address contract for getting the current address for the lending pool contract and returns it
 
