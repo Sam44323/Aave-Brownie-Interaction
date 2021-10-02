@@ -50,5 +50,6 @@ def approve_erc20(amount, erc20_address, spender, account):
     return transaction
 
 
-def get_borrowable_data():
-    pass
+def get_borrowable_data(lending_pool, account):
+    (total_collateral_eth, total_borrow_eth, available_borrow_eth, current_liquidation_threshold,
+     ltv, h_factor) = lending_pool.getUserAccountData(account.address)
