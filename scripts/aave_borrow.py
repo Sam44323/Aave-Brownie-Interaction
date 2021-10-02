@@ -22,3 +22,5 @@ def get_lending_pool():
 
     # getting the current address for the lending pool contract for aave
     lending_pool_address = lending_pool_addresses_provider.getLendingPool()
+    lending_pool = interface.ILendingPool(lending_pool_address)
+    return lending_pool
