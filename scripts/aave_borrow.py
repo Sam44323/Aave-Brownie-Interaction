@@ -1,6 +1,6 @@
 from scripts.get_weth import get_weth
 from scripts.helpful_scripts import get_account, LOCAL_BLOCKCHAIN_ENVIRONMENTS
-from brownie import config, network
+from brownie import config, network, interface
 
 
 def main():
@@ -13,3 +13,11 @@ def main():
 
 
 def get_lending_pool():
+    # getting the contract for the lending pool provider contract
+    lending_pool_addresses_provider = interface.ILendingPoolAddressesProvider(
+        config["networks"][network.show_active(
+        )]["lending_pool_addresses_provider"]
+    )
+
+    # getting the current address for the lending pool contract for aave
+    lending_pool_address = lending_pool_addresses_provider.getLendingPool()
