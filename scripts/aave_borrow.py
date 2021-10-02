@@ -21,7 +21,7 @@ def main():
         0.000001, 'ether'), account.address, 0, {"from": account})
     transaction.wait(1)
     print("Deposited!")
-    get_borrowable_data()
+    get_borrowable_data(lending_pool, account)
 
 # this function uses the lending pool provider address contract for getting the current address for the lending pool contract and returns it
 
@@ -57,3 +57,6 @@ def get_borrowable_data(lending_pool, account):
     available_borrow_eth = Web3.fromWei(available_borrow_eth, 'ether')
     total_collateral_eth = Web3.fromWei(total_collateral_eth, 'ether')
     total_debt_eth = Web3.fromWei(total_debt_eth, 'ether')
+    print(f"You have {total_collateral_eth} value of ETH in deposition!")
+    print(f"You have {total_debt_eth} value of ETH in debtion!")
+    print(f"You have {available_borrow_eth} value of ETH for borrowing!")
