@@ -22,6 +22,8 @@ def main():
     transaction.wait(1)
     print("Deposited!")
     (borrowable_eth, total_debt) = get_borrowable_data(lending_pool, account)
+    print("Borrowing assets!")
+    dai_eth_price = get_asset_price(dai_eth_price_feed)
 
 
 # this function uses the lending pool provider address contract for getting the current address for the lending pool contract and returns it
@@ -59,3 +61,7 @@ def get_borrowable_data(lending_pool, account):
     total_collateral_eth = Web3.fromWei(total_collateral_eth, 'ether')
     total_debt_eth = Web3.fromWei(total_debt_eth, 'ether')
     return(float(available_borrow_eth), float(total_debt_eth))
+
+
+def get_asset_price(price_feed_address):
+    pass
