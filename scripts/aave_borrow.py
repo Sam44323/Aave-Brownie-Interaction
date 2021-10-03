@@ -63,6 +63,8 @@ def get_borrowable_data(lending_pool, account):
     total_debt_eth = Web3.fromWei(total_debt_eth, 'ether')
     return(float(available_borrow_eth), float(total_debt_eth))
 
+# for getting the asset price from chainlink
+
 
 def get_asset_price(price_feed_address):
     pass
