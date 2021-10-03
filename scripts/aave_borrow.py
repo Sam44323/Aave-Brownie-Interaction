@@ -70,4 +70,7 @@ def get_asset_price(price_feed_address):
     dai_eth_price_feed = interface.IAggregatorV3(price_feed_address)
     # getting the latest round price
     latest_price = dai_eth_price_feed.latestRoundData()[1]
+    # converting the value from wei to ether
+    latest_price = Web3.fromWei(latest_price, "ether")
+    print(f"The DAI/ETH price is {latest_price}")
     return float(latest_price)
