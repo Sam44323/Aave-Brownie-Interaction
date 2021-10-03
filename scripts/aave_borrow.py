@@ -23,7 +23,8 @@ def main():
     print("Deposited!")
     (borrowable_eth, total_debt) = get_borrowable_data(lending_pool, account)
     print("Borrowing assets!")
-    dai_eth_price = get_asset_price(dai_eth_price_feed)
+    dai_eth_price = get_asset_price(
+        config["networks"][network.show_active()]['dai_price_feed'])
 
 
 # this function uses the lending pool provider address contract for getting the current address for the lending pool contract and returns it
