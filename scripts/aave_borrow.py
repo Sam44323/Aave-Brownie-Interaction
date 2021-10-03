@@ -25,12 +25,14 @@ def main():
     print("Borrowing assets!")
     dai_eth_price = get_asset_price(
         config["networks"][network.show_active()]['dai_eth_price_feed'])
-    amount_dai_to_borrow = (1/dai_eth_price) * (borrowable_eth * 0.95)
+    amount_dai_to_borrow = (1/dai_eth_price) * (borrowable_eth * 0.45)
     print(f"We are going to borrow {amount_dai_to_borrow} DAI")
     dai_token_address = config["networks"][network.show_active()]["dai_token"]
     transaction = lending_pool.borrow(
-        dai_token_address, Web3.toWei(amount_dai_to_borrow, "ether"), 1, 0, account.address)
+        dai_token_address, Web3.toWei(amount_dai_to_borrow, "ether"), 1, 0, account.address, {"from": account})
     transaction.wait(1)
+    (borrowable_eth, total_debt) = get_borrowable_data(lending_pool, account)
+    print(f"DAI borrowing completed! {total_debt}")
 
 # this function uses the lending pool provider address contract for getting the current address for the lending pool contract and returns it
 
