@@ -67,4 +67,4 @@ def get_borrowable_data(lending_pool, account):
 
 
 def get_asset_price(price_feed_address):
-    dai_eth_price_feed = interface.AggregatorV3Interface(price_feed_address)
+    dai_eth_price_feed = interface.IAggregatorV3(price_feed_address)
