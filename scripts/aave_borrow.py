@@ -68,3 +68,6 @@ def get_borrowable_data(lending_pool, account):
 
 def get_asset_price(price_feed_address):
     dai_eth_price_feed = interface.IAggregatorV3(price_feed_address)
+    # getting the latest round price
+    latest_price = dai_eth_price_feed.latestRoundData()[1]
+    return float(latest_price)
